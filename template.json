@@ -1,0 +1,21 @@
+{
+  "name": "lerna-app",
+  "parse": [
+    "PROJECT-package.json",
+    "PROJECT-README.md",
+    "packages/core/PROJECT-package.json",
+    "packages/core/README.md"
+  ],
+  "discard": [
+    "package.json",
+    "README.md",
+    "template.json",
+    "packages/core/package.json"
+  ],
+  "move": [
+    { "PROJECT-package.json": "package.json" },
+    { "PROJECT-README.md": "README.md" },
+    { "packages/core/PROJECT-package.json": "packages/core/package.json" }
+  ],
+  "complete": "git init {{ name or org }} && npm install && npm run cover"
+}
