@@ -19,5 +19,5 @@
     { "PROJECT-travis.yml": ".travis.yml" },
     { "packages/core/PROJECT-package.json": "packages/core/package.json" }
   ],
-  "complete": "git init {{ name or org }} && npm install && npm run cover"
+  "complete": "git init {{ name or org }}"
 }
