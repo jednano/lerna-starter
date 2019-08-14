@@ -21,8 +21,7 @@ available to you in the project root. You can run each of them with
 
 If you want to limit the scope of a script to a particular package, add the
 `--scope` option to the command (e.g.,
-`npm run clean -- --scope=@{{ org or name }}/core`). See
-[run options](https://github.com/lerna/lerna/tree/master/commands/run#options).
+`npm run clean -- --scope=@{{ org or name }}/core`). See [run options][].
 
 You can also run [Lerna commands](https://lerna.js.org/#commands) in this
 project. It is recommended that you use
@@ -31,20 +30,20 @@ project. It is recommended that you use
 
 ### clean
 
-_Supports `--scope`._
+_Supports [run options][]._
 
 Clean coverage results in `./coverage` and runs `npm run clean` for each
 package.
 
 ### lint
 
-_Supports `--scope`._
+_Supports [run options][]._
 
 Runs ESLint for each package.
 
 ### check-types
 
-_Supports `--scope`._
+_Supports [run options][]._
 
 Runs the TypeScript compiler for each package without emitting any files. This
 is used in a pre-push hook for a faster alternative than a full build, so you
@@ -52,7 +51,7 @@ probably won't want to run it directly.
 
 ### build
 
-_Supports `--scope`._
+_Supports [run options][]._
 
 Runs the TypeScript compiler for each package.
 
@@ -88,3 +87,4 @@ with the
 to bypasses the pre-commit and commit-msg hooks.
 
 [jest]: https://jestjs.io/
+[run options]: https://github.com/lerna/lerna/tree/master/commands/run#options
