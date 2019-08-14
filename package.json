@@ -1,21 +1,15 @@
 {
-  "name": "private-node-starter",
+  "name": "name",
   "private": true,
-  "version": "1.0.0",
-  "description": "Starter project for Node.js/TypeScript projects.",
-  "keywords": [
-    "node",
-    "typescript",
-    "starter"
-  ],
+  "license": "MIT",
   "scripts": {
-    "clean": "rimraf coverage *.log*",
-    "lint": "eslint src/**/*.ts",
-    "check-types": "tsc --noEmit",
-    "start": "ts-node src/index.ts",
-    "pretest": "npm run clean && npm run lint",
+    "postinstall": "lerna bootstrap",
+    "clean": "rimraf coverage && lerna run clean",
+    "lint": "lerna run lint",
+    "check-types": "lerna run check-types",
+    "build": "lerna run build",
     "test": "jest --watch",
-    "precover": "npm run clean && npm run lint",
+    "precover": "rimraf coverage",
     "cover": "jest --coverage",
     "commit": "git-cz"
   },
@@ -23,18 +17,22 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-push": "tsc --noEmit && npm run cover"
+      "pre-push": "npm run check-types && npm run cover"
     }
   },
   "commitlint": {
     "extends": [
-      "@commitlint/config-conventional"
+      "@commitlint/config-conventional",
+      "@commitlint/config-lerna-scopes"
     ]
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "release": {
+    "branch": "master"
   },
   "prettier": {
     "arrowParens": "avoid",
@@ -43,7 +41,21 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "jest": {
+    "collectCoverageFrom": [
+      "packages/*/src/**/*.ts"
+    ],
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "lcov",
@@ -67,9 +79,6 @@
         }
       }
     },
-    "moduleNameMapper": {
-      "^src/(.*)$": "<rootDir>/src/$1"
-    },
     "modulePathIgnorePatterns": [
       "node_modules"
     ],
@@ -81,35 +90,10 @@
       "jest-watch-typeahead/testname"
     ]
   },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write",
-      "git add"
-    ],
-    "*.{json,md}": [
-      "prettier --write",
-      "git add"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jedmao/private-node-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/jedmao/private-node-starter/issues"
-  },
-  "homepage": "https://github.com/jedmao/private-node-starter#readme",
-  "author": "Jed Mao <jedmao@outlook.com>",
-  "license": "MIT",
-  "dependencies": {
-    "ts-node": "^8.3.0",
-    "tslib": "^1.10.0",
-    "typescript": "^3.5.3"
-  },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
+    "@commitlint/config-lerna-scopes": "^8.1.0",
     "@types/jest": "^24.0.17",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
     "@typescript-eslint/parser": "^1.13.0",
@@ -118,13 +102,16 @@
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^6.0.0",
     "eslint-config-xo": "^0.26.0",
+    "eslint-config-xo-typescript": "^0.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "husky": "^3.0.3",
     "jest": "^24.8.0",
     "jest-watch-typeahead": "^0.3.1",
+    "lerna": "^3.16.4",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^24.0.2"
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3",
+    "xo": "^0.24.0"
   }
 }

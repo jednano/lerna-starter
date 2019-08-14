@@ -1,0 +1,13 @@
+{
+  "name": "@{{ name or org }}/core",
+  "description": "{{ description }}",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{ org or name }}/{{ name or org }}.git"
+  },
+  "author": "{{ author }}",
+  "bugs": {
+    "url": "https://github.com/{{ org or name }}/{{ name or org }}/issues"
+  },
+  "homepage": "https://github.com/{{ org or name }}/{{ name or org }}#readme"
+}

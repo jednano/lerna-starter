@@ -17,30 +17,29 @@
   "extends": [
     "eslint:recommended",
     "xo",
+    "xo-typescript",
     "prettier",
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
-    // Possible Errors
-    "no-async-promise-executor": "error",
-    "no-await-in-loop": "error",
-    "no-misleading-character-class": "error",
-    "no-template-curly-in-string": "error",
+    "@typescript-eslint/no-use-before-define": "off",
 
-    // TypeScript-ESLint (Prettier)
-    "@typescript-eslint/member-delimiter-style": "off",
-
-    // TypeScript-ESLint
-    "@typescript-eslint/explicit-function-return-type": "off",
+    // Defer to Prettier
     "@typescript-eslint/indent": "off",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@typescript-eslint/no-object-literal-type-assertion": "off",
-    "@typescript-eslint/no-this-alias": [
-      "error",
-      {
-        "allowDestructuring": true
+
+    // xo-typescript overrides
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/semi": ["error", "never"]
+  },
+  "overrides": [
+    {
+      "files": ["packages/*/src/**/*.test.ts"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "@typescript-eslint/no-explicit-any": "off"
       }
-    ],
-    "@typescript-eslint/no-use-before-define": "off"
-  }
+    }
+  ]
 }

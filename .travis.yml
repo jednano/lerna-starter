@@ -8,9 +8,21 @@ cache: npm
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 
 script:
+  - npm run lint
   - npm run cover
 
 after_success:
   - npx codecov -f coverage/lcov.info
+  - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
+  - npm run build
+
+deploy:
+  - provider: script
+    script: lerna publish --yes
+    skip_cleanup: true
+    keep_history: true
+    on:
+      branch: master

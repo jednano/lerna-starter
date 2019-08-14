@@ -1,11 +1,13 @@
 {
   "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": ["typescript"],
   "files.associations": {
     ".eslintrc.json": "jsonc"
   },
-  "jest.rootPath": "src",
   "search.exclude": {
-    "**/coverge": true,
+    "coverage": true,
+    "packages/*/dist": true,
     "**/node_modules": true
   }
 }

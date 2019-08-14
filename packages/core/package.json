@@ -1,0 +1,31 @@
+{
+  "name": "@org/core",
+  "license": "MIT",
+  "version": "1.0.0",
+  "scripts": {
+    "clean": "npx rimraf dist *.log*",
+    "lint": "npx eslint src/**/*.ts",
+    "check-types": "npx tsc --noEmit",
+    "prebuild": "npx rimraf dist",
+    "build": "npx tsc",
+    "test": "cd ../.. && npm test packages/core",
+    "cover": "cd ../.. && npm run cover packages/core",
+    "commit": "cd ../.. && npm run commit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "lerna",
+    "typescript"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
+}

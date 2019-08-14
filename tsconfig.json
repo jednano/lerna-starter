@@ -3,26 +3,30 @@
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "alwaysStrict": true,
-    "baseUrl": "src",
+    "baseUrl": "packages",
+    "declaration": true,
+    "declarationMap": true,
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
-    "lib": ["esnext"],
+    "lib": ["es2017"],
     "module": "commonjs",
     "moduleResolution": "node",
     "newLine": "LF",
-    "noEmit": true,
     "noEmitHelpers": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "src/*": ["./*"]
-    },
-    "rootDir": "src",
     "skipLibCheck": true,
-    "strict": true
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2017"
   },
-  "include": ["src"]
+  "exclude": [
+    "node_modules",
+    "packages/*/dist",
+    "packages/*/node_modules",
+    "packages/*/src/**/*.test.ts"
+  ]
 }
