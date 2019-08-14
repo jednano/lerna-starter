@@ -7,6 +7,7 @@
     "packages/core/README.md"
   ],
   "discard": [
+    ".travis.yml",
     "package.json",
     "README.md",
     "template.json",
@@ -15,6 +16,7 @@
   "move": [
     { "PROJECT-package.json": "package.json" },
     { "PROJECT-README.md": "README.md" },
+    { "PROJECT-travis.yml": ".travis.yml" },
     { "packages/core/PROJECT-package.json": "packages/core/package.json" }
   ],
   "complete": "git init {{ name or org }} && npm install && npm run cover"
