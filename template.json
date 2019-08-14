@@ -6,18 +6,20 @@
     "packages/core/PROJECT-package.json",
     "packages/core/README.md"
   ],
+  "merge": [
+    ["package.json", "PROJECT-package.json"],
+    ["packages/core/package.json", "packages/core/PROJECT-package.json"]
+  ],
   "discard": [
     ".travis.yml",
-    "package.json",
+    "PROJECT-package.json",
     "README.md",
     "template.json",
-    "packages/core/package.json"
+    "packages/core/PROJECT-package.json"
   ],
   "move": [
-    { "PROJECT-package.json": "package.json" },
     { "PROJECT-README.md": "README.md" },
-    { "PROJECT-travis.yml": ".travis.yml" },
-    { "packages/core/PROJECT-package.json": "packages/core/package.json" }
+    { "PROJECT-travis.yml": ".travis.yml" }
   ],
   "complete": "git init {{ name or org }}"
 }
