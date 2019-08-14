@@ -21,5 +21,14 @@
     { "PROJECT-README.md": "README.md" },
     { "PROJECT-travis.yml": ".travis.yml" }
   ],
-  "complete": "git init {{ name or org }}"
+  "complete": [
+    "cd {{ name or org }}",
+    "git init",
+    "npm install",
+    "git add .",
+    "git commit -m 'initial commit'",
+    "git remote add origin https://github.com/{{ org }}/{{ name }}.git",
+    "git push -u origin master",
+    "code ."
+  ]
 }

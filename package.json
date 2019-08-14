@@ -3,7 +3,6 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "postinstall": "lerna bootstrap",
     "clean": "rimraf coverage && lerna run clean",
     "lint": "lerna run lint",
     "check-types": "lerna run check-types",
