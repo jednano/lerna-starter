@@ -32,9 +32,12 @@ Starter project for a [Lerna][]/[TypeScript][] monorepo.
 - Continuous integration with [Travis-CI](https://travis-ci.com/).
 
   - Enable automatic publishing to [npm][] by creating an
-    [npm token](https://docs.npmjs.com/cli/token) and adding it to your
-    [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/)
-    as `NPM_TOKEN`.
+    [npm token](https://docs.npmjs.com/cli/token) and adding it as `NPM_TOKEN`
+    to your
+    [Travis environment variables](https://docs.travis-ci.com/user/environment-variables/).
+  - Enable automatic [GitHub][] release commits by creating a
+    [GitHub token](https://github.com/settings/tokens/new) with `public_repo`
+    access and adding it as `GH_TOKEN` in Travis (see above).
   - Coverage reports uploaded to [Codecov](https://codecov.io/).
   - [Greenkeeper](https://greenkeeper.io/) enabled.
 
