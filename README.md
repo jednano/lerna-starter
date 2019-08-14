@@ -59,6 +59,12 @@ All options are optional. Imagine that!
 Refer to [Pollinate][] docs for the various ways in which you can provide
 options.
 
+### author
+
+Use the `Name <email> (url)` format, where `email` and `url` are optional. This
+is for the
+[`author` field in package.json](https://docs.npmjs.com/files/package.json#people-fields-author-contributors).
+
 ### name
 
 Typically the name of the monorepo project, but falls back to the [`org`](#org)
