@@ -1,0 +1,32 @@
+language: node_js
+
+node_js:
+  - 'lts/*'
+
+cache: npm
+
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/
+
+script:
+  - npm run lint
+  - npm run cover
+
+after_success:
+  - npx codecov -f coverage/lcov.info
+
+before_deploy:
+  - npm config set //registry.npmjs.org/:_authToken=$NPM_TOKEN -q
+  - git remote set-url origin
+    https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git
+  - git checkout master
+
+deploy:
+  - provider: script
+    script: lerna publish --yes
+    skip_cleanup: true
+    keep_history: true
+    on:
+      branch: master
