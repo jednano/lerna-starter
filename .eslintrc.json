@@ -16,10 +16,12 @@
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "xo",
     "xo-typescript",
-    "prettier",
-    "plugin:@typescript-eslint/recommended"
+    "prettier"
   ],
   "rules": {
     "@typescript-eslint/no-use-before-define": "off",
